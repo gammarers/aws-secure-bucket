@@ -23,7 +23,6 @@ Object {
             },
           ],
         },
-        "BucketName": "example-secure-bucket",
         "PublicAccessBlockConfiguration": Object {
           "BlockPublicAcls": true,
           "BlockPublicPolicy": true,

@@ -14,9 +14,7 @@ describe('SecureBucket Testing', () => {
       },
     });
 
-    const bucket = new SecureBucket(stack, 'SecureBucket', {
-      bucketName: 'example-secure-bucket',
-    });
+    const bucket = new SecureBucket(stack, 'SecureBucket');
 
     it('Is Bucket', () => {
       expect(bucket).toBeInstanceOf(s3.Bucket);
@@ -121,6 +119,7 @@ describe('SecureBucket Testing', () => {
     const bucket = new SecureBucket(stack, 'SecureBucket', {
       bucketName: 'example-secure-bucket',
       encryption: SecureBucketEncryption.KMS_MANAGED,
+      versioned: true,
     });
 
     it('Is Bucket', () => {
