@@ -19,9 +19,43 @@ const project = new awscdk.AwsCdkConstructLibrary({
       labels: ['auto-approve', 'auto-merge'],
     },
   },
-  autoApproveOptions: {
-    secret: 'GITHUB_TOKEN',
-    allowedUsernames: ['yicr'],
+  githubOptions: {
+    mergify: true,
+    mergifyOptions: {
+      rules: [
+        {
+          name: 'Automatically approve dependency upgrade PRs if they pass build',
+          actions: {
+            review: {
+              type: 'APPROVE',
+              message: 'Automatically approved dependency upgrade PR',
+            },
+          },
+          conditions: [
+            'label=auto-approve',
+            'label=auto-merge',
+            '-label~=(do-not-merge)',
+            'status-success=build',
+            'author=github-actions[bot]',
+            'title="chore(deps): upgrade dependencies"',
+          ],
+        },
+      ],
+    },
+    pullRequestLintOptions: {
+      semanticTitle: true,
+      semanticTitleOptions: {
+        types: [
+          'chore',
+          'docs',
+          'feat',
+          'fix',
+          'ci',
+          'test',
+          'refactor',
+        ],
+      },
+    },
   },
 });
 project.synth();
