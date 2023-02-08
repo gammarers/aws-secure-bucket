@@ -10,52 +10,14 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'https://github.com/yicr/secure-bucket.git',
   keywords: ['aws', 'cdk', 'aws-cdk', 's3', 'bucket'],
   npmAccess: javascript.NpmAccess.PUBLIC,
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
   depsUpgradeOptions: {
     workflowOptions: {
       labels: ['auto-approve', 'auto-merge'],
     },
   },
-  githubOptions: {
-    mergify: true,
-    mergifyOptions: {
-      rules: [
-        {
-          name: 'Automatically approve dependency upgrade PRs if they pass build',
-          actions: {
-            review: {
-              type: 'APPROVE',
-              message: 'Automatically approved dependency upgrade PR',
-            },
-          },
-          conditions: [
-            'label=auto-approve',
-            'label=auto-merge',
-            '-label~=(do-not-merge)',
-            'status-success=build',
-            'author=github-actions[bot]',
-            'title="chore(deps): upgrade dependencies"',
-          ],
-        },
-      ],
-    },
-    pullRequestLintOptions: {
-      semanticTitle: true,
-      semanticTitleOptions: {
-        types: [
-          'chore',
-          'docs',
-          'feat',
-          'fix',
-          'ci',
-          'test',
-          'refactor',
-        ],
-      },
-    },
+  autoApproveOptions: {
+    secret: 'GITHUB_TOKEN',
+    allowedUsernames: ['yicr'],
   },
 });
 project.synth();
