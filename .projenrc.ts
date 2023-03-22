@@ -10,6 +10,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'https://github.com/yicr/secure-bucket.git',
   keywords: ['aws', 'cdk', 'aws-cdk', 's3', 'bucket'],
   npmAccess: javascript.NpmAccess.PUBLIC,
+  minNodeVersion: '16.0.0',
+  workflowNodeVersion: '16.19.1',
   depsUpgradeOptions: {
     workflowOptions: {
       labels: ['auto-approve', 'auto-merge'],
