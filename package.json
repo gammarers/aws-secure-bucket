@@ -1,9 +1,9 @@
 {
-  "name": "@yicr/secure-bucket",
+  "name": "@yicr/aws-secure-bucket",
   "description": "This is a Simple S3 Secure Bucket.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yicr/secure-bucket.git"
+    "url": "https://github.com/yicr/aws-secure-bucket.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -67,7 +67,9 @@
     "aws-cdk",
     "bucket",
     "cdk",
-    "s3"
+    "kms",
+    "s3",
+    "secure"
   ],
   "engines": {
     "node": ">= 16.0.0"
