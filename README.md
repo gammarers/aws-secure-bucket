@@ -2,6 +2,11 @@
 
 This is a Simple S3 Secure Bucket.
 
+- Bucket Access Control is Private
+- Public Read Access is false
+- Enforce SSL
+- All Block public access
+- Require encryption
 
 ## Install
 
