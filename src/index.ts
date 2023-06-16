@@ -6,6 +6,7 @@ export interface SecureBucketProps {
   readonly bucketName?: string;
   readonly encryption?: SecureBucketEncryption;
   readonly versioned?: boolean;
+  readonly eventBridgeEnabled?: boolean;
 }
 
 export enum SecureBucketEncryption {
@@ -40,7 +41,18 @@ export class SecureBucket extends s3.Bucket {
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       enforceSSL: true,
       versioned: props?.versioned ? props.versioned : true,
-      eventBridgeEnabled: true,
     });
+
+    // Get CfnBucket
+    const cfnBucket = this.node.defaultChild as s3.CfnBucket;
+    if (props?.eventBridgeEnabled === true) {
+      cfnBucket.addPropertyOverride('NotificationConfiguration.EventBridgeConfiguration.EventBridgeEnabled', true);
+    }
+
+    // todo: cloudTrailEnabled
+    // const trail = new cloudtrail.Trail(this, 'Trail');
+    // trail.addS3EventSelector([{ bucket: this }], {
+    //   readWriteType: cloudtrail.ReadWriteType.ALL,
+    // });
   }
 }
