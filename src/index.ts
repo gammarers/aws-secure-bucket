@@ -40,6 +40,7 @@ export class SecureBucket extends s3.Bucket {
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       enforceSSL: true,
       versioned: props?.versioned ? props.versioned : true,
+      eventBridgeEnabled: true,
     });
   }
 }
