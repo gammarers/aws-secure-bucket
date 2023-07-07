@@ -7,6 +7,7 @@ export interface SecureBucketProps {
   readonly encryption?: SecureBucketEncryption;
   readonly versioned?: boolean;
   readonly eventBridgeEnabled?: boolean;
+  readonly lifecycleRules?: s3.LifecycleRule[];
 }
 
 export enum SecureBucketEncryption {
@@ -41,6 +42,7 @@ export class SecureBucket extends s3.Bucket {
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       enforceSSL: true,
       versioned: props?.versioned ? props.versioned : true,
+      lifecycleRules: props?.lifecycleRules,
     });
 
     // Get CfnBucket

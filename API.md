@@ -1170,6 +1170,7 @@ const secureBucketProps: SecureBucketProps = { ... }
 | <code><a href="#@yicr/aws-secure-bucket.SecureBucketProps.property.bucketName">bucketName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@yicr/aws-secure-bucket.SecureBucketProps.property.encryption">encryption</a></code> | <code><a href="#@yicr/aws-secure-bucket.SecureBucketEncryption">SecureBucketEncryption</a></code> | *No description.* |
 | <code><a href="#@yicr/aws-secure-bucket.SecureBucketProps.property.eventBridgeEnabled">eventBridgeEnabled</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#@yicr/aws-secure-bucket.SecureBucketProps.property.lifecycleRules">lifecycleRules</a></code> | <code>aws-cdk-lib.aws_s3.LifecycleRule[]</code> | *No description.* |
 | <code><a href="#@yicr/aws-secure-bucket.SecureBucketProps.property.versioned">versioned</a></code> | <code>boolean</code> | *No description.* |
 
 ---
@@ -1201,6 +1202,16 @@ public readonly eventBridgeEnabled: boolean;
 ```
 
 - *Type:* boolean
+
+---
+
+##### `lifecycleRules`<sup>Optional</sup> <a name="lifecycleRules" id="@yicr/aws-secure-bucket.SecureBucketProps.property.lifecycleRules"></a>
+
+```typescript
+public readonly lifecycleRules: LifecycleRule[];
+```
+
+- *Type:* aws-cdk-lib.aws_s3.LifecycleRule[]
 
 ---
 
