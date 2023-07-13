@@ -23,5 +23,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
     secret: 'GITHUB_TOKEN',
     allowedUsernames: ['yicr'],
   },
+  publishToPypi: {
+    distName: 'aws-secure-bucket',
+    module: 'aws_secure_bucket',
+  },
 });
 project.synth();
