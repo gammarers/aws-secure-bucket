@@ -13,11 +13,17 @@ This is a Simple S3 Secure Bucket.
 ### TypeScript
 
 ```shell
-npm install @yicr/aws-secure-bucket
+npm install aws-secure-bucket
 ```
 or
 ```shell
-yarn add @yicr/aws-secure-bucket
+yarn add aws-secure-bucket
+```
+
+### Python
+
+```shell
+pip install aws-secure-bucket
 ```
 
 ## Example
@@ -25,11 +31,11 @@ yarn add @yicr/aws-secure-bucket
 ### TypeScript
 
 ```shell
-npm install @yicr/aws-secure-bucket
+npm install aws-secure-bucket
 ```
 
 ```typescript
-import { SecureBucket } from '@yicr/aws-secure-bucket';
+import { SecureBucket } from 'aws-secure-bucket';
 
 const bucket = new SecureBucket(stack, 'SecureBucket', {
   bucketName: 'example-secure-bucket',

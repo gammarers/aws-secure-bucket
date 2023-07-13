@@ -4,7 +4,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'yicr@users.noreply.github.com',
   cdkVersion: '2.61.0',
   defaultReleaseBranch: 'main',
-  name: '@yicr/aws-secure-bucket',
+  name: 'aws-secure-bucket',
   description: 'This is a Simple S3 Secure Bucket.',
   projenrcTs: true,
   repositoryUrl: 'https://github.com/yicr/aws-secure-bucket.git',
@@ -22,6 +22,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
   autoApproveOptions: {
     secret: 'GITHUB_TOKEN',
     allowedUsernames: ['yicr'],
+  },
+  publishToPypi: {
+    distName: 'aws-secure-bucket',
+    module: 'aws_secure_bucket',
   },
 });
 project.synth();
