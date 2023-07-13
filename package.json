@@ -1,5 +1,5 @@
 {
-  "name": "@yicr/aws-secure-bucket",
+  "name": "aws-secure-bucket",
   "description": "This is a Simple S3 Secure Bucket.",
   "repository": {
     "type": "git",
@@ -81,9 +81,6 @@
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "publishConfig": {
-    "access": "public"
-  },
   "version": "0.0.0",
   "jest": {
     "testMatch": [
