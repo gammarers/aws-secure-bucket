@@ -13,17 +13,17 @@ This is a Simple S3 Secure Bucket.
 ### TypeScript
 
 ```shell
-npm install aws-secure-bucket
+npm install @birdroid/aws-secure-bucket
 ```
 or
 ```shell
-yarn add aws-secure-bucket
+yarn add @birdroid/aws-secure-bucket
 ```
 
 ### Python
 
 ```shell
-pip install aws-secure-bucket
+pip install birdroid.aws-secure-bucket
 ```
 
 ## Example
@@ -31,11 +31,11 @@ pip install aws-secure-bucket
 ### TypeScript
 
 ```shell
-npm install aws-secure-bucket
+npm install @birdroid/aws-secure-bucket
 ```
 
 ```typescript
-import { SecureBucket } from 'aws-secure-bucket';
+import { SecureBucket } from '@birdroid/aws-secure-bucket';
 
 const bucket = new SecureBucket(stack, 'SecureBucket', {
   bucketName: 'example-secure-bucket',
