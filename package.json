@@ -1,5 +1,5 @@
 {
-  "name": "@birdroid/aws-secure-bucket",
+  "name": "@gammarer/aws-secure-bucket",
   "description": "This is a Simple S3 Secure Bucket.",
   "repository": {
     "type": "git",
@@ -132,8 +132,8 @@
     "outdir": "dist",
     "targets": {
       "python": {
-        "distName": "birdroid.aws-secure-bucket",
-        "module": "birdroid.aws_secure_bucket"
+        "distName": "gammarer.aws-secure-bucket",
+        "module": "gammarer.aws_secure_bucket"
       }
     },
     "tsc": {
