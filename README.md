@@ -14,9 +14,7 @@ This is a Simple S3 Secure Bucket.
 
 ```shell
 npm install @gammarer/aws-secure-bucket
-```
-or
-```shell
+# or
 yarn add @gammarer/aws-secure-bucket
 ```
 
@@ -29,10 +27,6 @@ pip install gammarer.aws-secure-bucket
 ## Example
 
 ### TypeScript
-
-```shell
-npm install @gammarer/aws-secure-bucket
-```
 
 ```typescript
 import { SecureBucket } from '@gammarer/aws-secure-bucket';
