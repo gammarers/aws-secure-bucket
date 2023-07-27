@@ -8,6 +8,7 @@ export interface SecureBucketProps {
   readonly versioned?: boolean;
   readonly eventBridgeEnabled?: boolean;
   readonly lifecycleRules?: s3.LifecycleRule[];
+  readonly objectOwnership?: SecureObjectOwnership;
 }
 
 export enum SecureBucketEncryption {
@@ -19,6 +20,30 @@ export enum SecureBucketEncryption {
    * Server-side encryption with a master key managed by S3.
    */
   S3_MANAGED = 'S3_MANAGED',
+}
+
+/**
+ * The ObjectOwnership of the bucket.
+ *
+ * @see https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html
+ *
+ */
+export enum SecureObjectOwnership {
+  /**
+   * ACLs are disabled, and the bucket owner automatically owns
+   * and has full control over every object in the bucket.
+   * ACLs no longer affect permissions to data in the S3 bucket.
+   * The bucket uses policies to define access control.
+   */
+  BUCKET_OWNER_ENFORCED = 'BucketOwnerEnforced',
+  /**
+   * Objects uploaded to the bucket change ownership to the bucket owner .
+   */
+  BUCKET_OWNER_PREFERRED = 'BucketOwnerPreferred',
+  /**
+   * The uploading account will own the object.
+   */
+  OBJECT_WRITER = 'ObjectWriter'
 }
 
 export class SecureBucket extends s3.Bucket {
@@ -43,6 +68,19 @@ export class SecureBucket extends s3.Bucket {
       enforceSSL: true,
       versioned: props?.versioned ? props.versioned : true,
       lifecycleRules: props?.lifecycleRules,
+      objectOwnership: (() => {
+        if (props?.objectOwnership) {
+          switch (props.objectOwnership) {
+            case SecureObjectOwnership.BUCKET_OWNER_ENFORCED:
+              return s3.ObjectOwnership.BUCKET_OWNER_ENFORCED;
+            case SecureObjectOwnership.BUCKET_OWNER_PREFERRED:
+              return s3.ObjectOwnership.BUCKET_OWNER_PREFERRED;
+            case SecureObjectOwnership.OBJECT_WRITER:
+              return s3.ObjectOwnership.OBJECT_WRITER;
+          }
+        }
+        return s3.ObjectOwnership.BUCKET_OWNER_ENFORCED;
+      })(),
     });
 
     // Get CfnBucket
