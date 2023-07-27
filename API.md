@@ -14,9 +14,7 @@ This is a Simple S3 Secure Bucket.
 
 ```shell
 npm install @gammarer/aws-secure-bucket
-```
-or
-```shell
+# or
 yarn add @gammarer/aws-secure-bucket
 ```
 
@@ -29,10 +27,6 @@ pip install gammarer.aws-secure-bucket
 ## Example
 
 ### TypeScript
-
-```shell
-npm install @gammarer/aws-secure-bucket
-```
 
 ```typescript
 import { SecureBucket } from '@gammarer/aws-secure-bucket';
@@ -1177,6 +1171,7 @@ const secureBucketProps: SecureBucketProps = { ... }
 | <code><a href="#@gammarer/aws-secure-bucket.SecureBucketProps.property.encryption">encryption</a></code> | <code><a href="#@gammarer/aws-secure-bucket.SecureBucketEncryption">SecureBucketEncryption</a></code> | *No description.* |
 | <code><a href="#@gammarer/aws-secure-bucket.SecureBucketProps.property.eventBridgeEnabled">eventBridgeEnabled</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#@gammarer/aws-secure-bucket.SecureBucketProps.property.lifecycleRules">lifecycleRules</a></code> | <code>aws-cdk-lib.aws_s3.LifecycleRule[]</code> | *No description.* |
+| <code><a href="#@gammarer/aws-secure-bucket.SecureBucketProps.property.objectOwnership">objectOwnership</a></code> | <code><a href="#@gammarer/aws-secure-bucket.SecureObjectOwnership">SecureObjectOwnership</a></code> | *No description.* |
 | <code><a href="#@gammarer/aws-secure-bucket.SecureBucketProps.property.versioned">versioned</a></code> | <code>boolean</code> | *No description.* |
 
 ---
@@ -1221,6 +1216,16 @@ public readonly lifecycleRules: LifecycleRule[];
 
 ---
 
+##### `objectOwnership`<sup>Optional</sup> <a name="objectOwnership" id="@gammarer/aws-secure-bucket.SecureBucketProps.property.objectOwnership"></a>
+
+```typescript
+public readonly objectOwnership: SecureObjectOwnership;
+```
+
+- *Type:* <a href="#@gammarer/aws-secure-bucket.SecureObjectOwnership">SecureObjectOwnership</a>
+
+---
+
 ##### `versioned`<sup>Optional</sup> <a name="versioned" id="@gammarer/aws-secure-bucket.SecureBucketProps.property.versioned"></a>
 
 ```typescript
@@ -1256,6 +1261,46 @@ Server-side KMS encryption with a master key managed by KMS.
 ##### `S3_MANAGED` <a name="S3_MANAGED" id="@gammarer/aws-secure-bucket.SecureBucketEncryption.S3_MANAGED"></a>
 
 Server-side encryption with a master key managed by S3.
+
+---
+
+
+### SecureObjectOwnership <a name="SecureObjectOwnership" id="@gammarer/aws-secure-bucket.SecureObjectOwnership"></a>
+
+The ObjectOwnership of the bucket.
+
+> [https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html)
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@gammarer/aws-secure-bucket.SecureObjectOwnership.BUCKET_OWNER_ENFORCED">BUCKET_OWNER_ENFORCED</a></code> | ACLs are disabled, and the bucket owner automatically owns and has full control over every object in the bucket. |
+| <code><a href="#@gammarer/aws-secure-bucket.SecureObjectOwnership.BUCKET_OWNER_PREFERRED">BUCKET_OWNER_PREFERRED</a></code> | Objects uploaded to the bucket change ownership to the bucket owner . |
+| <code><a href="#@gammarer/aws-secure-bucket.SecureObjectOwnership.OBJECT_WRITER">OBJECT_WRITER</a></code> | The uploading account will own the object. |
+
+---
+
+##### `BUCKET_OWNER_ENFORCED` <a name="BUCKET_OWNER_ENFORCED" id="@gammarer/aws-secure-bucket.SecureObjectOwnership.BUCKET_OWNER_ENFORCED"></a>
+
+ACLs are disabled, and the bucket owner automatically owns and has full control over every object in the bucket.
+
+ACLs no longer affect permissions to data in the S3 bucket.
+The bucket uses policies to define access control.
+
+---
+
+
+##### `BUCKET_OWNER_PREFERRED` <a name="BUCKET_OWNER_PREFERRED" id="@gammarer/aws-secure-bucket.SecureObjectOwnership.BUCKET_OWNER_PREFERRED"></a>
+
+Objects uploaded to the bucket change ownership to the bucket owner .
+
+---
+
+
+##### `OBJECT_WRITER` <a name="OBJECT_WRITER" id="@gammarer/aws-secure-bucket.SecureObjectOwnership.OBJECT_WRITER"></a>
+
+The uploading account will own the object.
 
 ---
 
