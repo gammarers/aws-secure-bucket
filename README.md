@@ -24,6 +24,17 @@ yarn add @gammarer/aws-secure-bucket
 pip install gammarer.aws-secure-bucket
 ```
 
+### Java
+
+Add the following to pom.xml:
+
+```xml
+<dependency>
+  <groupId>com.gammarer</groupId>
+  <artifactId>aws-secure-bucket</artifactId>
+</dependency>
+```
+
 ## Example
 
 ### TypeScript
