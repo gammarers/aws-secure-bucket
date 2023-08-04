@@ -28,5 +28,11 @@ const project = new awscdk.AwsCdkConstructLibrary({
     distName: 'gammarer.aws-secure-bucket',
     module: 'gammarer.aws_secure_bucket',
   },
+  publishToMaven: {
+    mavenGroupId: 'com.gammarer',
+    javaPackage: 'com.gammarer.cdk.aws.secure_bucket',
+    mavenArtifactId: 'aws-secure-bucket',
+    mavenEndpoint: 'https://s01.oss.sonatype.org',
+  },
 });
 project.synth();
