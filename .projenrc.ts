@@ -2,7 +2,7 @@ import { awscdk, javascript } from 'projen';
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'yicr',
   authorAddress: 'yicr@users.noreply.github.com',
-  cdkVersion: '2.61.0',
+  cdkVersion: '2.80.0',
   typescriptVersion: '5.0.x',
   defaultReleaseBranch: 'main',
   name: '@gammarer/aws-secure-bucket',
