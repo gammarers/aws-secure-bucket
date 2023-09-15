@@ -9,7 +9,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: '@gammarer/aws-secure-bucket',
   description: 'This is a Simple S3 Secure Bucket.',
   projenrcTs: true,
-  repositoryUrl: 'https://github.com/yicr/aws-secure-bucket.git',
+  repositoryUrl: 'https://github.com/gammarer/aws-secure-bucket.git',
   keywords: ['aws', 'cdk', 'aws-cdk', 's3', 'bucket', 'secure', 'kms'],
   releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
