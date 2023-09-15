@@ -32,6 +32,12 @@ yarn add @gammarer/aws-secure-bucket
 pip install gammarer.aws-secure-bucket
 ```
 
+### C# / .Net
+
+```shell
+dotnet add package Gammarer.CDK.AWS.SecureBucket
+```
+
 ### Java
 
 Add the following to pom.xml:
