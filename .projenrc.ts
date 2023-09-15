@@ -13,7 +13,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   keywords: ['aws', 'cdk', 'aws-cdk', 's3', 'bucket', 'secure', 'kms'],
   releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
-  minNodeVersion: '18.0.0',
+  minNodeVersion: '16.0.0',
   workflowNodeVersion: '18.17.1',
   depsUpgradeOptions: {
     workflowOptions: {
