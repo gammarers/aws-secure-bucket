@@ -35,7 +35,7 @@
   "author": {
     "name": "yicr",
     "email": "yicr@users.noreply.github.com",
-    "organization": false
+    "organization": true
   },
   "devDependencies": {
     "@types/jest": "^27",
