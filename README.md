@@ -4,7 +4,6 @@
 [![npm (scoped)](https://img.shields.io/npm/v/@gammarers/aws-secure-bucket?style=flat-square)](https://www.npmjs.com/package/@gammarers/aws-secure-bucket)
 [![PyPI](https://img.shields.io/pypi/v/gammarers.aws-secure-bucket?style=flat-square)](https://pypi.org/project/gammarers.aws-secure-bucket/)
 [![Nuget](https://img.shields.io/nuget/v/gammarers.CDK.AWS.SecureBucket?style=flat-square)](https://www.nuget.org/packages/gammarers.CDK.AWS.SecureBucket/)
-[![Sonatype Nexus (Releases)](https://img.shields.io/nexus/r/com.gammarers/aws-secure-bucket?server=https%3A%2F%2Fs01.oss.sonatype.org%2F&style=flat-square)](https://s01.oss.sonatype.org/content/repositories/releases/com/gammarers/aws-secure-bucket/)
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/gammarers/aws-secure-bucket/release.yml?branch=main&label=release&style=flat-square)](https://github.com/gammarers/aws-secure-bucket/actions/workflows/release.yml)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/gammarers/aws-secure-bucket?sort=semver&style=flat-square)](https://github.com/gammarers/aws-secure-bucket/releases)
 
