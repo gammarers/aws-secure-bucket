@@ -7,10 +7,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
   jsiiVersion: '5.2.x',
   typescriptVersion: '5.2.x',
   defaultReleaseBranch: 'main',
-  name: '@gammarer/aws-secure-bucket',
+  name: '@gammarers/aws-secure-bucket',
   description: 'This is a Simple S3 Secure Bucket.',
   projenrcTs: true,
-  repositoryUrl: 'https://github.com/gammarer/aws-secure-bucket.git',
+  repositoryUrl: 'https://github.com/gammarers/aws-secure-bucket.git',
   keywords: ['aws', 'cdk', 'aws-cdk', 's3', 'bucket', 'secure', 'kms'],
   majorVersion: 1,
   releaseToNpm: true,
@@ -28,18 +28,12 @@ const project = new awscdk.AwsCdkConstructLibrary({
     allowedUsernames: ['yicr'],
   },
   publishToPypi: {
-    distName: 'gammarer.aws-secure-bucket',
-    module: 'gammarer.aws_secure_bucket',
-  },
-  publishToMaven: {
-    mavenGroupId: 'com.gammarer',
-    javaPackage: 'com.gammarer.cdk.aws.secure_bucket',
-    mavenArtifactId: 'aws-secure-bucket',
-    mavenEndpoint: 'https://s01.oss.sonatype.org',
+    distName: 'gammarers.aws-secure-bucket',
+    module: 'gammarers.aws_secure_bucket',
   },
   publishToNuget: {
-    dotNetNamespace: 'Gammarer.CDK.AWS',
-    packageId: 'Gammarer.CDK.AWS.SecureBucket',
+    dotNetNamespace: 'Gammarers.CDK.AWS',
+    packageId: 'Gammarers.CDK.AWS.SecureBucket',
   },
 });
 project.synth();
