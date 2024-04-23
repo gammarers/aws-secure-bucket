@@ -137,8 +137,8 @@
         }
       },
       "python": {
-        "distName": "gammarer.aws-secure-bucket",
-        "module": "gammarer.aws_secure_bucket"
+        "distName": "gammarers.aws-secure-bucket",
+        "module": "gammarers.aws_secure_bucket"
       },
       "dotnet": {
         "namespace": "Gammarer.CDK.AWS",

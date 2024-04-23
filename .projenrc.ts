@@ -28,8 +28,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
     allowedUsernames: ['yicr'],
   },
   publishToPypi: {
-    distName: 'gammarer.aws-secure-bucket',
-    module: 'gammarer.aws_secure_bucket',
+    distName: 'gammarers.aws-secure-bucket',
+    module: 'gammarers.aws_secure_bucket',
   },
   publishToMaven: {
     mavenGroupId: 'com.gammarer',
