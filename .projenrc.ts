@@ -31,12 +31,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
     distName: 'gammarers.aws-secure-bucket',
     module: 'gammarers.aws_secure_bucket',
   },
-  publishToMaven: {
-    mavenGroupId: 'com.gammarer',
-    javaPackage: 'com.gammarer.cdk.aws.secure_bucket',
-    mavenArtifactId: 'aws-secure-bucket',
-    mavenEndpoint: 'https://s01.oss.sonatype.org',
-  },
   publishToNuget: {
     dotNetNamespace: 'Gammarer.CDK.AWS',
     packageId: 'Gammarer.CDK.AWS.SecureBucket',
