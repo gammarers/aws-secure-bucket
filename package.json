@@ -133,8 +133,8 @@
         "module": "gammarers.aws_secure_bucket"
       },
       "dotnet": {
-        "namespace": "Gammarer.CDK.AWS",
-        "packageId": "Gammarer.CDK.AWS.SecureBucket"
+        "namespace": "Gammarers.CDK.AWS",
+        "packageId": "Gammarers.CDK.AWS.SecureBucket"
       }
     },
     "tsc": {

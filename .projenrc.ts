@@ -32,8 +32,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
     module: 'gammarers.aws_secure_bucket',
   },
   publishToNuget: {
-    dotNetNamespace: 'Gammarer.CDK.AWS',
-    packageId: 'Gammarer.CDK.AWS.SecureBucket',
+    dotNetNamespace: 'Gammarers.CDK.AWS',
+    packageId: 'Gammarers.CDK.AWS.SecureBucket',
   },
 });
 project.synth();
