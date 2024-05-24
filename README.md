@@ -23,8 +23,18 @@ This is a Simple S3 Secure Bucket.
 
 ```shell
 npm install @gammarers/aws-secure-bucket
-# or
+```
+or
+```shell
 yarn add @gammarers/aws-secure-bucket
+```
+or
+```shell
+pnpm add @gammarers/aws-secure-bucket
+```
+or
+```shell
+bun add @gammarers/aws-secure-bucket
 ```
 
 ### Python
