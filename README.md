@@ -21,18 +21,26 @@ This is a Simple S3 Secure Bucket.
 
 ### TypeScript
 
+#### install by npm
+
 ```shell
 npm install @gammarers/aws-secure-bucket
 ```
-or
+
+#### install by yarn
+
 ```shell
 yarn add @gammarers/aws-secure-bucket
 ```
-or
+
+#### install by pnpm
+
 ```shell
 pnpm add @gammarers/aws-secure-bucket
 ```
-or
+
+#### install by bun
+
 ```shell
 bun add @gammarers/aws-secure-bucket
 ```

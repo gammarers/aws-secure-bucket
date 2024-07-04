@@ -2,6 +2,13 @@ import * as cdk from 'aws-cdk-lib';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
 
+/**
+ * @TODO: Not yet supported
+ * https://github.com/aws/jsii/issues/4468
+ * type omitKeys = 'publicReadAccess|enforceSSL|blockPublicAccess';
+ * export interface CodePipelineStateChangeDetectionEventRuleProps extends Omit<s3.BucketProps, 'publicReadAccess'> {}
+ */
+
 export interface SecureBucketProps extends s3.BucketProps {}
 
 export class SecureBucket extends s3.Bucket {
