@@ -3553,10 +3553,10 @@ jsii-reflect@^1.103.0, jsii-reflect@^1.103.1:
     oo-ascii-tree "^1.103.1"
     yargs "^16.2.0"
 
-jsii-rosetta@5.4.x:
-  version "5.4.35"
-  resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.4.35.tgz#16a477118acdf40dcd8b073e21b44a3f6188bd9f"
-  integrity sha512-uz3+nnFxdSvpqUwdSzpEjOfFZQ5gFdyTvfb+PylvrQnF8/y7bMmYa0sJV09sF8UHMij0iYnuS00WpepG92/R/g==
+jsii-rosetta@5.5.x:
+  version "5.5.4"
+  resolved "https://registry.yarnpkg.com/jsii-rosetta/-/jsii-rosetta-5.5.4.tgz#8825f62fb3a38860d7834740fe2d4d9cc5251268"
+  integrity sha512-hTIjmP9KmOptBm881r1aFq7CLi4agNvy4GOgbupF/K4pAFBH1hTJ4xL9NBxQxhEuWi3rRFQA72Z6aYz1AHcuIg==
   dependencies:
     "@jsii/check-node" "1.103.0"
     "@jsii/spec" "^1.103.0"
@@ -3564,18 +3564,18 @@ jsii-rosetta@5.4.x:
     chalk "^4"
     commonmark "^0.31.1"
     fast-glob "^3.3.2"
-    jsii "~5.4.0"
+    jsii "~5.5.0"
     semver "^7.6.3"
     semver-intersect "^1.5.0"
     stream-json "^1.8.0"
-    typescript "~5.4"
+    typescript "~5.5"
     workerpool "^6.5.1"
     yargs "^17.7.2"
 
-jsii@5.4.x, jsii@~5.4.0:
-  version "5.4.35"
-  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.4.35.tgz#0063c8d16efc5c0b021b63d5ab58d499c2e96283"
-  integrity sha512-q7gMLfYZz0kcjwnzB13vBSlh/1ZcY3Qi+AbwkJAOwrw6Uj5pLphnXV45hgrpcO8RoO9WuUBW2DU3rDtrk1swcA==
+jsii@5.5.x, jsii@~5.5.0:
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/jsii/-/jsii-5.5.3.tgz#eca7914a27651c1ef9e76ef626d4f75fa5458921"
+  integrity sha512-MFxdTiq/CNJ0ESKwWNwp2oon4ruHYr/DlrpY//wjUTk4jHyM7Jze+SfvC9raCFJOLzfc2Dcy8aA2HdjNpCpQBg==
   dependencies:
     "@jsii/check-node" "1.103.1"
     "@jsii/spec" "^1.103.1"
@@ -3588,7 +3588,7 @@ jsii@5.4.x, jsii@~5.4.0:
     semver-intersect "^1.5.0"
     sort-json "^2.0.1"
     spdx-license-list "^6.9.0"
-    typescript "~5.4"
+    typescript "~5.5"
     yargs "^17.7.2"
 
 json-buffer@3.0.1:
@@ -5070,10 +5070,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
-typescript@5.4.x, typescript@~5.4:
-  version "5.4.5"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.5.tgz#42ccef2c571fdbd0f6718b1d1f5e6e5ef006f611"
-  integrity sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==
+typescript@5.5.x, typescript@~5.5:
+  version "5.5.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.5.4.tgz#d9852d6c82bad2d2eda4fd74a5762a8f5909e9ba"
+  integrity sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==
 
 typescript@next:
   version "5.7.0-dev.20240904"
