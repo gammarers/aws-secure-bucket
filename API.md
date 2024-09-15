@@ -104,7 +104,7 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ##### `addEventNotification` <a name="addEventNotification" id="@gammarers/aws-secure-bucket.SecureBucket.addEventNotification"></a>
 
 ```typescript
-public addEventNotification(event: EventType, dest: IBucketNotificationDestination, filters: NotificationKeyFilter): void
+public addEventNotification(event: EventType, dest: IBucketNotificationDestination, filters: ...NotificationKeyFilter[]): void
 ```
 
 Adds a bucket notification event destination.
@@ -138,7 +138,7 @@ The notification destination (Lambda, SNS Topic or SQS Queue).
 
 ###### `filters`<sup>Required</sup> <a name="filters" id="@gammarers/aws-secure-bucket.SecureBucket.addEventNotification.parameter.filters"></a>
 
-- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+- *Type:* ...aws-cdk-lib.aws_s3.NotificationKeyFilter[]
 
 S3 object key filter rules to determine which objects trigger this event.
 
@@ -151,7 +151,7 @@ for details about allowed filter rules.
 ##### `addObjectCreatedNotification` <a name="addObjectCreatedNotification" id="@gammarers/aws-secure-bucket.SecureBucket.addObjectCreatedNotification"></a>
 
 ```typescript
-public addObjectCreatedNotification(dest: IBucketNotificationDestination, filters: NotificationKeyFilter): void
+public addObjectCreatedNotification(dest: IBucketNotificationDestination, filters: ...NotificationKeyFilter[]): void
 ```
 
 Subscribes a destination to receive notifications when an object is created in the bucket.
@@ -169,7 +169,7 @@ The notification destination (see onEvent).
 
 ###### `filters`<sup>Required</sup> <a name="filters" id="@gammarers/aws-secure-bucket.SecureBucket.addObjectCreatedNotification.parameter.filters"></a>
 
-- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+- *Type:* ...aws-cdk-lib.aws_s3.NotificationKeyFilter[]
 
 Filters (see onEvent).
 
@@ -178,7 +178,7 @@ Filters (see onEvent).
 ##### `addObjectRemovedNotification` <a name="addObjectRemovedNotification" id="@gammarers/aws-secure-bucket.SecureBucket.addObjectRemovedNotification"></a>
 
 ```typescript
-public addObjectRemovedNotification(dest: IBucketNotificationDestination, filters: NotificationKeyFilter): void
+public addObjectRemovedNotification(dest: IBucketNotificationDestination, filters: ...NotificationKeyFilter[]): void
 ```
 
 Subscribes a destination to receive notifications when an object is removed from the bucket.
@@ -196,7 +196,7 @@ The notification destination (see onEvent).
 
 ###### `filters`<sup>Required</sup> <a name="filters" id="@gammarers/aws-secure-bucket.SecureBucket.addObjectRemovedNotification.parameter.filters"></a>
 
-- *Type:* aws-cdk-lib.aws_s3.NotificationKeyFilter
+- *Type:* ...aws-cdk-lib.aws_s3.NotificationKeyFilter[]
 
 Filters (see onEvent).
 
@@ -290,7 +290,7 @@ Restrict the permission to a certain key pattern (default '*').
 ##### `grantPublicAccess` <a name="grantPublicAccess" id="@gammarers/aws-secure-bucket.SecureBucket.grantPublicAccess"></a>
 
 ```typescript
-public grantPublicAccess(allowedActions: string, keyPrefix?: string): Grant
+public grantPublicAccess(allowedActions: ...string[], keyPrefix?: string): Grant
 ```
 
 Allows unrestricted access to objects from this bucket.
@@ -316,7 +316,7 @@ impossible to modify the policy of an existing bucket.
 
 ###### `allowedActions`<sup>Required</sup> <a name="allowedActions" id="@gammarers/aws-secure-bucket.SecureBucket.grantPublicAccess.parameter.allowedActions"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 the set of S3 actions to allow.
 
