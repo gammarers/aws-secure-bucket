@@ -16,16 +16,7 @@ export class SecureBucket extends s3.Bucket {
     super(scope, id, {
       ...props,
       removalPolicy: cdk.RemovalPolicy.RETAIN,
-      encryption: (() => {
-        if (!props?.encryption) {
-          return s3.BucketEncryption.KMS_MANAGED;
-        } else {
-          if (props.encryption === s3.BucketEncryption.UNENCRYPTED) {
-            throw new Error('DeplicatedArgumentFoundError: BucketEncryption.UNENCRYPTED is deplicated, Bucket cano not be unencrypted.');
-          }
-        }
-        return props.encryption;
-      })(),
+      encryption: props?.encryption || s3.BucketEncryption.KMS_MANAGED,
       accessControl: (() => {
         if (!props?.accessControl) {
           return s3.BucketAccessControl.PRIVATE;

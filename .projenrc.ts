@@ -4,8 +4,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'yicr@users.noreply.github.com',
   authorOrganization: true,
   cdkVersion: '2.80.0',
-  jsiiVersion: '5.5.x',
-  typescriptVersion: '5.5.x',
+  jsiiVersion: '5.7.x',
+  typescriptVersion: '5.7.x',
   defaultReleaseBranch: 'main',
   name: '@gammarers/aws-secure-bucket',
   description: 'This is a Simple S3 Secure Bucket.',
@@ -20,7 +20,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   depsUpgradeOptions: {
     workflowOptions: {
       labels: ['auto-approve', 'auto-merge'],
-      schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 17 * * 0']), // every sunday (JST/MON:02:00)
+      schedule: javascript.UpgradeDependenciesSchedule.expressions(['2 16 * * 0']),
     },
   },
   autoApproveOptions: {
