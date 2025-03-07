@@ -17,6 +17,12 @@ This is a Simple S3 Secure Bucket.
 - All Block public access
 - Require encryption
 
+## Additional Properties
+
+| **Name** | **Type** | **Default** | **Description** |
+| --- | --- | --- | --- |
+| isPipelineArtifactBucket | boolean |  false | If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, set it to true. |
+
 ## Install
 
 ### TypeScript
