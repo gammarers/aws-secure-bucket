@@ -11,6 +11,11 @@ import { Construct } from 'constructs';
  */
 
 export interface SecureBucketProps extends s3.BucketProps {
+  /**
+   * If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, set it to true.
+   *
+   * @default false
+   */
   readonly isPipelineArtifactBucket?: boolean;
 }
 
