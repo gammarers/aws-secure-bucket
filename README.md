@@ -22,6 +22,7 @@ This is a Simple S3 Secure Bucket.
 | **Name** | **Type** | **Default** | **Description** |
 | --- | --- | --- | --- |
 | isPipelineArtifactBucket | boolean |  false | If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, set it to true. |
+| isCloudFrontOriginBucket | boolean |  false | If your are using it as the CloudFront orign bucket, set it to true. |
 
 ## Install
 

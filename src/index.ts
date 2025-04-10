@@ -11,12 +11,18 @@ import { Construct } from 'constructs';
  */
 
 export interface SecureBucketProps extends s3.BucketProps {
+
   /**
    * If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, set it to true.
    *
    * @default false
    */
   readonly isPipelineArtifactBucket?: boolean;
+
+  /**
+   * If your are using it as the CloudFront orign bucket, set it to true.
+   */
+  readonly isCloudFrontOriginBucket?: boolean;
 }
 
 export class SecureBucket extends s3.Bucket {
@@ -24,7 +30,13 @@ export class SecureBucket extends s3.Bucket {
     super(scope, id, {
       ...props,
       removalPolicy: RemovalPolicy.RETAIN,
-      encryption: props?.encryption || s3.BucketEncryption.KMS_MANAGED,
+      // encryption: props?.encryption || s3.BucketEncryption.KMS_MANAGED,
+      encryption: (() => {
+        if (props?.isCloudFrontOriginBucket === true) {
+          return s3.BucketEncryption.S3_MANAGED;
+        }
+        return props?.encryption || s3.BucketEncryption.KMS_MANAGED;
+      })(),
       accessControl: (() => {
         if (!props?.accessControl) {
           return s3.BucketAccessControl.PRIVATE;
