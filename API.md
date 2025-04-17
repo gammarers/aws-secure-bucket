@@ -47,6 +47,7 @@ new SecureBucket(scope: Construct, id: string, props?: SecureBucketProps)
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucket.addEventNotification">addEventNotification</a></code> | Adds a bucket notification event destination. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucket.addObjectCreatedNotification">addObjectCreatedNotification</a></code> | Subscribes a destination to receive notifications when an object is created in the bucket. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucket.addObjectRemovedNotification">addObjectRemovedNotification</a></code> | Subscribes a destination to receive notifications when an object is removed from the bucket. |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucket.addReplicationPolicy">addReplicationPolicy</a></code> | Function to add required permissions to the destination bucket for cross account replication. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucket.addToResourcePolicy">addToResourcePolicy</a></code> | Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or its contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucket.arnForObjects">arnForObjects</a></code> | Returns an ARN that represents all objects within the bucket that match the key pattern specified. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucket.enableEventBridgeNotification">enableEventBridgeNotification</a></code> | Enables event bridge notification, causing all events below to be sent to EventBridge:. |
@@ -202,6 +203,36 @@ Filters (see onEvent).
 
 ---
 
+##### `addReplicationPolicy` <a name="addReplicationPolicy" id="@gammarers/aws-secure-bucket.SecureBucket.addReplicationPolicy"></a>
+
+```typescript
+public addReplicationPolicy(roleArn: string, accessControlTransition?: boolean, account?: string): void
+```
+
+Function to add required permissions to the destination bucket for cross account replication.
+
+These permissions will be added as a resource based policy on the bucket
+
+> [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html)
+
+###### `roleArn`<sup>Required</sup> <a name="roleArn" id="@gammarers/aws-secure-bucket.SecureBucket.addReplicationPolicy.parameter.roleArn"></a>
+
+- *Type:* string
+
+---
+
+###### `accessControlTransition`<sup>Optional</sup> <a name="accessControlTransition" id="@gammarers/aws-secure-bucket.SecureBucket.addReplicationPolicy.parameter.accessControlTransition"></a>
+
+- *Type:* boolean
+
+---
+
+###### `account`<sup>Optional</sup> <a name="account" id="@gammarers/aws-secure-bucket.SecureBucket.addReplicationPolicy.parameter.account"></a>
+
+- *Type:* string
+
+---
+
 ##### `addToResourcePolicy` <a name="addToResourcePolicy" id="@gammarers/aws-secure-bucket.SecureBucket.addToResourcePolicy"></a>
 
 ```typescript
@@ -285,6 +316,8 @@ The principal.
 
 Restrict the permission to a certain key pattern (default '*').
 
+Parameter type is `any` but `string` should be passed in.
+
 ---
 
 ##### `grantPublicAccess` <a name="grantPublicAccess" id="@gammarers/aws-secure-bucket.SecureBucket.grantPublicAccess"></a>
@@ -357,6 +390,8 @@ The principal.
 
 Restrict the permission to a certain key pattern (default '*').
 
+Parameter type is `any` but `string` should be passed in.
+
 ---
 
 ##### `grantPutAcl` <a name="grantPutAcl" id="@gammarers/aws-secure-bucket.SecureBucket.grantPutAcl"></a>
@@ -407,6 +442,8 @@ The principal.
 - *Type:* any
 
 Restrict the permission to a certain key pattern (default '*').
+
+Parameter type is `any` but `string` should be passed in.
 
 ---
 
@@ -919,7 +956,7 @@ Create a mutable `IBucket` based on a low-level `CfnBucket`.
 ```typescript
 import { SecureBucket } from '@gammarers/aws-secure-bucket'
 
-SecureBucket.validateBucketName(physicalName: string)
+SecureBucket.validateBucketName(physicalName: string, allowLegacyBucketNaming?: boolean)
 ```
 
 Thrown an exception if the given bucket name is not valid.
@@ -929,6 +966,14 @@ Thrown an exception if the given bucket name is not valid.
 - *Type:* string
 
 name of the bucket.
+
+---
+
+###### `allowLegacyBucketNaming`<sup>Optional</sup> <a name="allowLegacyBucketNaming" id="@gammarers/aws-secure-bucket.SecureBucket.validateBucketName.parameter.allowLegacyBucketNaming"></a>
+
+- *Type:* boolean
+
+allow legacy bucket naming style, default is false.
 
 ---
 
@@ -949,6 +994,7 @@ name of the bucket.
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucket.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | Optional KMS encryption key associated with this bucket. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucket.property.isWebsite">isWebsite</a></code> | <code>boolean</code> | If this bucket has been configured for static website hosting. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucket.property.policy">policy</a></code> | <code>aws-cdk-lib.aws_s3.BucketPolicy</code> | The resource policy associated with this bucket. |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucket.property.replicationRoleArn">replicationRoleArn</a></code> | <code>string</code> | Role used to set up permissions on this bucket for replication. |
 
 ---
 
@@ -1118,6 +1164,18 @@ first call to addToResourcePolicy(s).
 
 ---
 
+##### `replicationRoleArn`<sup>Optional</sup> <a name="replicationRoleArn" id="@gammarers/aws-secure-bucket.SecureBucket.property.replicationRoleArn"></a>
+
+```typescript
+public readonly replicationRoleArn: string;
+```
+
+- *Type:* string
+
+Role used to set up permissions on this bucket for replication.
+
+---
+
 
 ## Structs <a name="Structs" id="Structs"></a>
 
@@ -1145,19 +1203,24 @@ const secureBucketProps: SecureBucketProps = { ... }
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.encryptionKey">encryptionKey</a></code> | <code>aws-cdk-lib.aws_kms.IKey</code> | External KMS key to use for bucket encryption. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.enforceSSL">enforceSSL</a></code> | <code>boolean</code> | Enforces SSL for requests. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.eventBridgeEnabled">eventBridgeEnabled</a></code> | <code>boolean</code> | Whether this bucket should send notifications to Amazon EventBridge or not. |
-| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.intelligentTieringConfigurations">intelligentTieringConfigurations</a></code> | <code>aws-cdk-lib.aws_s3.IntelligentTieringConfiguration[]</code> | Inteligent Tiering Configurations. |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.intelligentTieringConfigurations">intelligentTieringConfigurations</a></code> | <code>aws-cdk-lib.aws_s3.IntelligentTieringConfiguration[]</code> | Intelligent Tiering Configurations. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.inventories">inventories</a></code> | <code>aws-cdk-lib.aws_s3.Inventory[]</code> | The inventory configuration of the bucket. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.lifecycleRules">lifecycleRules</a></code> | <code>aws-cdk-lib.aws_s3.LifecycleRule[]</code> | Rules that define how Amazon S3 manages objects during their lifetime. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.metrics">metrics</a></code> | <code>aws-cdk-lib.aws_s3.BucketMetrics[]</code> | The metrics configuration of this bucket. |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.minimumTLSVersion">minimumTLSVersion</a></code> | <code>number</code> | Enforces minimum TLS version for requests. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.notificationsHandlerRole">notificationsHandlerRole</a></code> | <code>aws-cdk-lib.aws_iam.IRole</code> | The role to be used by the notifications handler. |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.notificationsSkipDestinationValidation">notificationsSkipDestinationValidation</a></code> | <code>boolean</code> | Skips notification validation of Amazon SQS, Amazon SNS, and Lambda destinations. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.objectLockDefaultRetention">objectLockDefaultRetention</a></code> | <code>aws-cdk-lib.aws_s3.ObjectLockRetention</code> | The default retention mode and rules for S3 Object Lock. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.objectLockEnabled">objectLockEnabled</a></code> | <code>boolean</code> | Enable object lock on the bucket. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.objectOwnership">objectOwnership</a></code> | <code>aws-cdk-lib.aws_s3.ObjectOwnership</code> | The objectOwnership of the bucket. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.publicReadAccess">publicReadAccess</a></code> | <code>boolean</code> | Grants public read access to all objects in the bucket. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.removalPolicy">removalPolicy</a></code> | <code>aws-cdk-lib.RemovalPolicy</code> | Policy to apply when the bucket is removed from this stack. |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.replicationRules">replicationRules</a></code> | <code>aws-cdk-lib.aws_s3.ReplicationRule[]</code> | A container for one or more replication rules. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.serverAccessLogsBucket">serverAccessLogsBucket</a></code> | <code>aws-cdk-lib.aws_s3.IBucket</code> | Destination bucket for the server access logs. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.serverAccessLogsPrefix">serverAccessLogsPrefix</a></code> | <code>string</code> | Optional log file prefix to use for the bucket's access logs. |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.targetObjectKeyFormat">targetObjectKeyFormat</a></code> | <code>aws-cdk-lib.aws_s3.TargetObjectKeyFormat</code> | Optional key format for log objects. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.transferAcceleration">transferAcceleration</a></code> | <code>boolean</code> | Whether this bucket should have transfer acceleration turned on or not. |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.transitionDefaultMinimumObjectSize">transitionDefaultMinimumObjectSize</a></code> | <code>aws-cdk-lib.aws_s3.TransitionDefaultMinimumObjectSize</code> | Indicates which default minimum object size behavior is applied to the lifecycle configuration. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.versioned">versioned</a></code> | <code>boolean</code> | Whether this bucket should have versioning turned on or not. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.websiteErrorDocument">websiteErrorDocument</a></code> | <code>string</code> | The name of the error document (e.g. "404.html") for the website. `websiteIndexDocument` must also be set if this is set. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.websiteIndexDocument">websiteIndexDocument</a></code> | <code>string</code> | The name of the index document (e.g. "index.html") for the website. Enables static website hosting for this bucket. |
@@ -1199,6 +1262,11 @@ switching this to `false` in a CDK version *before* `1.126.0` will lead to
 all objects in the bucket being deleted. Be sure to update your bucket resources
 by deploying with CDK version `1.126.0` or later **before** switching this value to `false`.
 
+Setting `autoDeleteObjects` to true on a bucket will add `s3:PutBucketPolicy` to the
+bucket policy. This is because during bucket deletion, the custom resource provider
+needs to update the bucket policy by adding a deny policy for `s3:PutObject` to
+prevent race conditions with external bucket writers.
+
 ---
 
 ##### `blockPublicAccess`<sup>Optional</sup> <a name="blockPublicAccess" id="@gammarers/aws-secure-bucket.SecureBucketProps.property.blockPublicAccess"></a>
@@ -1233,7 +1301,7 @@ Only relevant when using KMS for encryption.
   attendant cost implications of that).
 - If enabled, S3 will use its own time-limited key instead.
 
-Only relevant, when Encryption is set to `BucketEncryption.KMS` or `BucketEncryption.KMS_MANAGED`.
+Only relevant, when Encryption is not set to `BucketEncryption.UNENCRYPTED`.
 
 ---
 
@@ -1272,7 +1340,7 @@ public readonly encryption: BucketEncryption;
 ```
 
 - *Type:* aws-cdk-lib.aws_s3.BucketEncryption
-- *Default:* `Kms` if `encryptionKey` is specified, or `Managed` otherwise.
+- *Default:* `KMS` if `encryptionKey` is specified, or `S3_MANAGED` otherwise.
 
 The kind of server-side encryption to apply to this bucket.
 
@@ -1288,13 +1356,12 @@ public readonly encryptionKey: IKey;
 ```
 
 - *Type:* aws-cdk-lib.aws_kms.IKey
-- *Default:* If encryption is set to "Kms" and this property is undefined, a new KMS key will be created and associated with this bucket.
+- *Default:* If `encryption` is set to `KMS` and this property is undefined, a new KMS key will be created and associated with this bucket.
 
 External KMS key to use for bucket encryption.
 
-The 'encryption' property must be either not specified or set to "Kms".
-An error will be emitted if encryption is set to "Unencrypted" or
-"Managed".
+The `encryption` property must be either not specified or set to `KMS` or `DSSE`.
+An error will be emitted if `encryption` is set to `UNENCRYPTED` or `S3_MANAGED`.
 
 ---
 
@@ -1337,7 +1404,7 @@ public readonly intelligentTieringConfigurations: IntelligentTieringConfiguratio
 - *Type:* aws-cdk-lib.aws_s3.IntelligentTieringConfiguration[]
 - *Default:* No Intelligent Tiiering Configurations.
 
-Inteligent Tiering Configurations.
+Intelligent Tiering Configurations.
 
 > [https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html)
 
@@ -1386,6 +1453,23 @@ The metrics configuration of this bucket.
 
 ---
 
+##### `minimumTLSVersion`<sup>Optional</sup> <a name="minimumTLSVersion" id="@gammarers/aws-secure-bucket.SecureBucketProps.property.minimumTLSVersion"></a>
+
+```typescript
+public readonly minimumTLSVersion: number;
+```
+
+- *Type:* number
+- *Default:* No minimum TLS version is enforced.
+
+Enforces minimum TLS version for requests.
+
+Requires `enforceSSL` to be enabled.
+
+> [https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazon-s3-policy-keys.html#example-object-tls-version](https://docs.aws.amazon.com/AmazonS3/latest/userguide/amazon-s3-policy-keys.html#example-object-tls-version)
+
+---
+
 ##### `notificationsHandlerRole`<sup>Optional</sup> <a name="notificationsHandlerRole" id="@gammarers/aws-secure-bucket.SecureBucketProps.property.notificationsHandlerRole"></a>
 
 ```typescript
@@ -1396,6 +1480,19 @@ public readonly notificationsHandlerRole: IRole;
 - *Default:* a new role will be created.
 
 The role to be used by the notifications handler.
+
+---
+
+##### `notificationsSkipDestinationValidation`<sup>Optional</sup> <a name="notificationsSkipDestinationValidation" id="@gammarers/aws-secure-bucket.SecureBucketProps.property.notificationsSkipDestinationValidation"></a>
+
+```typescript
+public readonly notificationsSkipDestinationValidation: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Skips notification validation of Amazon SQS, Amazon SNS, and Lambda destinations.
 
 ---
 
@@ -1442,7 +1539,7 @@ public readonly objectOwnership: ObjectOwnership;
 ```
 
 - *Type:* aws-cdk-lib.aws_s3.ObjectOwnership
-- *Default:* No ObjectOwnership configuration, uploading account will own the object.
+- *Default:* No ObjectOwnership configuration. By default, Amazon S3 sets Object Ownership to `Bucket owner enforced`. This means ACLs are disabled and the bucket owner will own every object.
 
 The objectOwnership of the bucket.
 
@@ -1478,6 +1575,19 @@ Policy to apply when the bucket is removed from this stack.
 
 ---
 
+##### `replicationRules`<sup>Optional</sup> <a name="replicationRules" id="@gammarers/aws-secure-bucket.SecureBucketProps.property.replicationRules"></a>
+
+```typescript
+public readonly replicationRules: ReplicationRule[];
+```
+
+- *Type:* aws-cdk-lib.aws_s3.ReplicationRule[]
+- *Default:* No replication
+
+A container for one or more replication rules.
+
+---
+
 ##### `serverAccessLogsBucket`<sup>Optional</sup> <a name="serverAccessLogsBucket" id="@gammarers/aws-secure-bucket.SecureBucketProps.property.serverAccessLogsBucket"></a>
 
 ```typescript
@@ -1506,6 +1616,19 @@ If defined without "serverAccessLogsBucket", enables access logs to current buck
 
 ---
 
+##### `targetObjectKeyFormat`<sup>Optional</sup> <a name="targetObjectKeyFormat" id="@gammarers/aws-secure-bucket.SecureBucketProps.property.targetObjectKeyFormat"></a>
+
+```typescript
+public readonly targetObjectKeyFormat: TargetObjectKeyFormat;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.TargetObjectKeyFormat
+- *Default:* the default key format is: [DestinationPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]
+
+Optional key format for log objects.
+
+---
+
 ##### `transferAcceleration`<sup>Optional</sup> <a name="transferAcceleration" id="@gammarers/aws-secure-bucket.SecureBucketProps.property.transferAcceleration"></a>
 
 ```typescript
@@ -1516,6 +1639,23 @@ public readonly transferAcceleration: boolean;
 - *Default:* false
 
 Whether this bucket should have transfer acceleration turned on or not.
+
+---
+
+##### `transitionDefaultMinimumObjectSize`<sup>Optional</sup> <a name="transitionDefaultMinimumObjectSize" id="@gammarers/aws-secure-bucket.SecureBucketProps.property.transitionDefaultMinimumObjectSize"></a>
+
+```typescript
+public readonly transitionDefaultMinimumObjectSize: TransitionDefaultMinimumObjectSize;
+```
+
+- *Type:* aws-cdk-lib.aws_s3.TransitionDefaultMinimumObjectSize
+- *Default:* TransitionDefaultMinimumObjectSize.VARIES_BY_STORAGE_CLASS before September 2024, otherwise TransitionDefaultMinimumObjectSize.ALL_STORAGE_CLASSES_128_K.
+
+Indicates which default minimum object size behavior is applied to the lifecycle configuration.
+
+To customize the minimum object size for any transition you can add a filter that specifies a custom
+`objectSizeGreaterThan` or `objectSizeLessThan` for `lifecycleRules` property. Custom filters always
+take precedence over the default transition behavior.
 
 ---
 
