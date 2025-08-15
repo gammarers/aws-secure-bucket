@@ -1226,7 +1226,8 @@ const secureBucketProps: SecureBucketProps = { ... }
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.websiteIndexDocument">websiteIndexDocument</a></code> | <code>string</code> | The name of the index document (e.g. "index.html") for the website. Enables static website hosting for this bucket. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.websiteRedirect">websiteRedirect</a></code> | <code>aws-cdk-lib.aws_s3.RedirectTarget</code> | Specifies the redirect behavior of all requests to a website endpoint of a bucket. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.websiteRoutingRules">websiteRoutingRules</a></code> | <code>aws-cdk-lib.aws_s3.RoutingRule[]</code> | Rules that define when a redirect is applied and the redirect behavior. |
-| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.isCloudFrontOriginBucket">isCloudFrontOriginBucket</a></code> | <code>boolean</code> | If your are using it as the CloudFront orign bucket, set it to true. |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.bucketType">bucketType</a></code> | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketType">SecureBucketType</a></code> | The type of the bucket. |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.isCloudFrontOriginBucket">isCloudFrontOriginBucket</a></code> | <code>boolean</code> | If your are using it as the CloudFront origin bucket, set it to true. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketProps.property.isPipelineArtifactBucket">isPipelineArtifactBucket</a></code> | <code>boolean</code> | If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, set it to true. |
 
 ---
@@ -1726,19 +1727,37 @@ Rules that define when a redirect is applied and the redirect behavior.
 
 ---
 
-##### `isCloudFrontOriginBucket`<sup>Optional</sup> <a name="isCloudFrontOriginBucket" id="@gammarers/aws-secure-bucket.SecureBucketProps.property.isCloudFrontOriginBucket"></a>
+##### `bucketType`<sup>Optional</sup> <a name="bucketType" id="@gammarers/aws-secure-bucket.SecureBucketProps.property.bucketType"></a>
+
+```typescript
+public readonly bucketType: SecureBucketType;
+```
+
+- *Type:* <a href="#@gammarers/aws-secure-bucket.SecureBucketType">SecureBucketType</a>
+- *Default:* SecureBucketType.DEFAULT
+
+The type of the bucket.
+
+---
+
+##### ~~`isCloudFrontOriginBucket`~~<sup>Optional</sup> <a name="isCloudFrontOriginBucket" id="@gammarers/aws-secure-bucket.SecureBucketProps.property.isCloudFrontOriginBucket"></a>
+
+- *Deprecated:* This property is deprecated. Use the bucketType property instead.
 
 ```typescript
 public readonly isCloudFrontOriginBucket: boolean;
 ```
 
 - *Type:* boolean
+- *Default:* false
 
-If your are using it as the CloudFront orign bucket, set it to true.
+If your are using it as the CloudFront origin bucket, set it to true.
 
 ---
 
-##### `isPipelineArtifactBucket`<sup>Optional</sup> <a name="isPipelineArtifactBucket" id="@gammarers/aws-secure-bucket.SecureBucketProps.property.isPipelineArtifactBucket"></a>
+##### ~~`isPipelineArtifactBucket`~~<sup>Optional</sup> <a name="isPipelineArtifactBucket" id="@gammarers/aws-secure-bucket.SecureBucketProps.property.isPipelineArtifactBucket"></a>
+
+- *Deprecated:* This property is deprecated. Use the bucketType property instead.
 
 ```typescript
 public readonly isPipelineArtifactBucket: boolean;
@@ -1752,4 +1771,38 @@ If you are setting a custom Qualifier and using it as the artifact bucket for th
 ---
 
 
+
+## Enums <a name="Enums" id="Enums"></a>
+
+### SecureBucketType <a name="SecureBucketType" id="@gammarers/aws-secure-bucket.SecureBucketType"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketType.SINGLE_PIPELINE_ARTIFACT">SINGLE_PIPELINE_ARTIFACT</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketType.MULTI_PIPELINE_ARTIFACT">MULTI_PIPELINE_ARTIFACT</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketType.CLOUD_FRONT_ORIGIN">CLOUD_FRONT_ORIGIN</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketType.DEFAULT">DEFAULT</a></code> | *No description.* |
+
+---
+
+##### `SINGLE_PIPELINE_ARTIFACT` <a name="SINGLE_PIPELINE_ARTIFACT" id="@gammarers/aws-secure-bucket.SecureBucketType.SINGLE_PIPELINE_ARTIFACT"></a>
+
+---
+
+
+##### `MULTI_PIPELINE_ARTIFACT` <a name="MULTI_PIPELINE_ARTIFACT" id="@gammarers/aws-secure-bucket.SecureBucketType.MULTI_PIPELINE_ARTIFACT"></a>
+
+---
+
+
+##### `CLOUD_FRONT_ORIGIN` <a name="CLOUD_FRONT_ORIGIN" id="@gammarers/aws-secure-bucket.SecureBucketType.CLOUD_FRONT_ORIGIN"></a>
+
+---
+
+
+##### `DEFAULT` <a name="DEFAULT" id="@gammarers/aws-secure-bucket.SecureBucketType.DEFAULT"></a>
+
+---
 

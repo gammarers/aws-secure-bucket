@@ -4,8 +4,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'yicr@users.noreply.github.com',
   authorOrganization: true,
   cdkVersion: '2.189.1',
-  jsiiVersion: '5.7.x',
-  typescriptVersion: '5.7.x',
+  jsiiVersion: '5.8.x',
+  typescriptVersion: '5.8.x',
   defaultReleaseBranch: 'main',
   name: '@gammarers/aws-secure-bucket',
   description: 'This is a Simple S3 Secure Bucket.',
@@ -16,7 +16,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   releaseToNpm: true,
   npmAccess: javascript.NpmAccess.PUBLIC,
   minNodeVersion: '16.0.0',
-  workflowNodeVersion: '22.4.x',
+  workflowNodeVersion: '22.x',
   depsUpgradeOptions: {
     workflowOptions: {
       labels: ['auto-approve', 'auto-merge'],

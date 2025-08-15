@@ -21,8 +21,9 @@ This is a Simple S3 Secure Bucket.
 
 | **Name** | **Type** | **Default** | **Description** |
 | --- | --- | --- | --- |
-| isPipelineArtifactBucket | boolean |  false | If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, set it to true. |
-| isCloudFrontOriginBucket | boolean |  false | If your are using it as the CloudFront orign bucket, set it to true. |
+| bucketType | SecureBucketType | SecureBucketType.DEFAULT | The type of the bucket. Available types: DEFAULT, SINGLE_PIPELINE_ARTIFACT, MULTI_PIPELINE_ARTIFACT, CLOUD_FRONT_ORIGIN |
+| isPipelineArtifactBucket | boolean | false | ⚠️ **Deprecated**: Use bucketType property instead. If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, set it to true. |
+| isCloudFrontOriginBucket | boolean | false | ⚠️ **Deprecated**: Use bucketType property instead. If you are using it as the CloudFront origin bucket, set it to true. |
 
 ## Install
 
@@ -38,18 +39,6 @@ npm install @gammarers/aws-secure-bucket
 
 ```shell
 yarn add @gammarers/aws-secure-bucket
-```
-
-#### install by pnpm
-
-```shell
-pnpm add @gammarers/aws-secure-bucket
-```
-
-#### install by bun
-
-```shell
-bun add @gammarers/aws-secure-bucket
 ```
 
 ### Python
