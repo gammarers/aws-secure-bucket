@@ -10,29 +10,46 @@ import { Construct } from 'constructs';
  * export interface CodePipelineStateChangeDetectionEventRuleProps extends Omit<s3.BucketProps, 'publicReadAccess'> {}
  */
 
+export enum SecureBucketType {
+  SINGLE_PIPELINE_ARTIFACT = 'single-pipeline-artifact',
+  MULTI_PIPELINE_ARTIFACT = 'multi-pipeline-artifact',
+  CLOUD_FRONT_ORIGIN = 'cloudfront-origin',
+  DEFAULT = 'default',
+}
+
 export interface SecureBucketProps extends s3.BucketProps {
 
   /**
    * If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, set it to true.
-   *
+   * @deprecated This property is deprecated. Use the bucketType property instead.
    * @default false
    */
   readonly isPipelineArtifactBucket?: boolean;
 
   /**
-   * If your are using it as the CloudFront orign bucket, set it to true.
+   * If your are using it as the CloudFront origin bucket, set it to true.
+   * @deprecated This property is deprecated. Use the bucketType property instead.
+   * @default false
    */
   readonly isCloudFrontOriginBucket?: boolean;
+
+  /**
+   * The type of the bucket.
+   * @default SecureBucketType.DEFAULT
+   */
+  readonly bucketType?: SecureBucketType;
 }
 
 export class SecureBucket extends s3.Bucket {
   constructor(scope: Construct, id: string, props?: SecureBucketProps) {
+    const bucketType = props?.bucketType || SecureBucketType.DEFAULT;
     super(scope, id, {
       ...props,
       removalPolicy: RemovalPolicy.RETAIN,
       // encryption: props?.encryption || s3.BucketEncryption.KMS_MANAGED,
       encryption: (() => {
-        if (props?.isCloudFrontOriginBucket === true) {
+        if (props?.isCloudFrontOriginBucket === true
+          || bucketType === SecureBucketType.CLOUD_FRONT_ORIGIN) {
           return s3.BucketEncryption.S3_MANAGED;
         }
         return props?.encryption || s3.BucketEncryption.KMS_MANAGED;
@@ -66,7 +83,9 @@ export class SecureBucket extends s3.Bucket {
     const account = Stack.of(this).account;
     const region = Stack.of(this).region;
 
-    if (props?.isPipelineArtifactBucket) {
+    if (props?.isPipelineArtifactBucket
+      || bucketType === SecureBucketType.SINGLE_PIPELINE_ARTIFACT
+      || bucketType === SecureBucketType.MULTI_PIPELINE_ARTIFACT) {
 
       // 👇 Get qualifier
       // const qualifier = Stack.of(this).synthesizer.bootstrapQualifier || defaultQualifier;
