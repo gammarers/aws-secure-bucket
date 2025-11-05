@@ -1795,28 +1795,72 @@ If you are setting a custom Qualifier and using it as the artifact bucket for th
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketType.SINGLE_PIPELINE_ARTIFACT">SINGLE_PIPELINE_ARTIFACT</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketType.SINGLE_REGION_DEPLOYMENT_PIPELINE_ARTIFACT_BUCKET">SINGLE_REGION_DEPLOYMENT_PIPELINE_ARTIFACT_BUCKET</a></code> | If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, is it selected as the single region deployment pipeline artifact bucket. |
 | <code><a href="#@gammarers/aws-secure-bucket.SecureBucketType.MULTI_PIPELINE_ARTIFACT">MULTI_PIPELINE_ARTIFACT</a></code> | *No description.* |
-| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketType.CLOUD_FRONT_ORIGIN">CLOUD_FRONT_ORIGIN</a></code> | *No description.* |
-| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketType.DEFAULT">DEFAULT</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketType.MULTI_REGION_DEPLOYMENT_PIPELINE_ARTIFACT_BUCKET">MULTI_REGION_DEPLOYMENT_PIPELINE_ARTIFACT_BUCKET</a></code> | If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, is it selected as the multi region deployment pipeline artifact bucket. |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketType.CLOUD_FRONT_ORIGIN">CLOUD_FRONT_ORIGIN</a></code> | If you are using it as the CloudFront origin bucket, is it selected as the cloudfront origin bucket. |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketType.CLOUD_FRONT_ORIGIN_BUCKET">CLOUD_FRONT_ORIGIN_BUCKET</a></code> | If you are using it as the CloudFront origin bucket, is it selected as the cloudfront origin bucket. |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketType.DEFAULT">DEFAULT</a></code> | If you are not setting a custom Qualifier and using it as the default bucket, is it selected as the default bucket. |
+| <code><a href="#@gammarers/aws-secure-bucket.SecureBucketType.DEFAULT_BUCKET">DEFAULT_BUCKET</a></code> | If you are not setting a custom Qualifier and using it as the default bucket, is it selected as the default bucket. |
 
 ---
 
-##### `SINGLE_PIPELINE_ARTIFACT` <a name="SINGLE_PIPELINE_ARTIFACT" id="@gammarers/aws-secure-bucket.SecureBucketType.SINGLE_PIPELINE_ARTIFACT"></a>
+##### ~~`SINGLE_PIPELINE_ARTIFACT`~~ <a name="SINGLE_PIPELINE_ARTIFACT" id="@gammarers/aws-secure-bucket.SecureBucketType.SINGLE_PIPELINE_ARTIFACT"></a>
 
----
-
-
-##### `MULTI_PIPELINE_ARTIFACT` <a name="MULTI_PIPELINE_ARTIFACT" id="@gammarers/aws-secure-bucket.SecureBucketType.MULTI_PIPELINE_ARTIFACT"></a>
-
----
-
-
-##### `CLOUD_FRONT_ORIGIN` <a name="CLOUD_FRONT_ORIGIN" id="@gammarers/aws-secure-bucket.SecureBucketType.CLOUD_FRONT_ORIGIN"></a>
+- *Deprecated:* This property is deprecated. Use the bucketType property instead.
 
 ---
 
 
-##### `DEFAULT` <a name="DEFAULT" id="@gammarers/aws-secure-bucket.SecureBucketType.DEFAULT"></a>
+##### `SINGLE_REGION_DEPLOYMENT_PIPELINE_ARTIFACT_BUCKET` <a name="SINGLE_REGION_DEPLOYMENT_PIPELINE_ARTIFACT_BUCKET" id="@gammarers/aws-secure-bucket.SecureBucketType.SINGLE_REGION_DEPLOYMENT_PIPELINE_ARTIFACT_BUCKET"></a>
+
+If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, is it selected as the single region deployment pipeline artifact bucket.
+
+---
+
+
+##### ~~`MULTI_PIPELINE_ARTIFACT`~~ <a name="MULTI_PIPELINE_ARTIFACT" id="@gammarers/aws-secure-bucket.SecureBucketType.MULTI_PIPELINE_ARTIFACT"></a>
+
+- *Deprecated:* This property is deprecated. Use the bucketType property instead.
+
+---
+
+
+##### `MULTI_REGION_DEPLOYMENT_PIPELINE_ARTIFACT_BUCKET` <a name="MULTI_REGION_DEPLOYMENT_PIPELINE_ARTIFACT_BUCKET" id="@gammarers/aws-secure-bucket.SecureBucketType.MULTI_REGION_DEPLOYMENT_PIPELINE_ARTIFACT_BUCKET"></a>
+
+If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, is it selected as the multi region deployment pipeline artifact bucket.
+
+---
+
+
+##### ~~`CLOUD_FRONT_ORIGIN`~~ <a name="CLOUD_FRONT_ORIGIN" id="@gammarers/aws-secure-bucket.SecureBucketType.CLOUD_FRONT_ORIGIN"></a>
+
+- *Deprecated:* This property is deprecated. Use the bucketType property instead.
+
+If you are using it as the CloudFront origin bucket, is it selected as the cloudfront origin bucket.
+
+---
+
+
+##### `CLOUD_FRONT_ORIGIN_BUCKET` <a name="CLOUD_FRONT_ORIGIN_BUCKET" id="@gammarers/aws-secure-bucket.SecureBucketType.CLOUD_FRONT_ORIGIN_BUCKET"></a>
+
+If you are using it as the CloudFront origin bucket, is it selected as the cloudfront origin bucket.
+
+---
+
+
+##### ~~`DEFAULT`~~ <a name="DEFAULT" id="@gammarers/aws-secure-bucket.SecureBucketType.DEFAULT"></a>
+
+- *Deprecated:* This property is deprecated. Use the bucketType property instead.
+
+If you are not setting a custom Qualifier and using it as the default bucket, is it selected as the default bucket.
+
+---
+
+
+##### `DEFAULT_BUCKET` <a name="DEFAULT_BUCKET" id="@gammarers/aws-secure-bucket.SecureBucketType.DEFAULT_BUCKET"></a>
+
+If you are not setting a custom Qualifier and using it as the default bucket, is it selected as the default bucket.
 
 ---
 
