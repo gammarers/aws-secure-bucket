@@ -21,7 +21,7 @@ This is a Simple S3 Secure Bucket.
 
 | **Name** | **Type** | **Default** | **Description** |
 | --- | --- | --- | --- |
-| bucketType | SecureBucketType | SecureBucketType.DEFAULT | The type of the bucket. Available types: DEFAULT, SINGLE_PIPELINE_ARTIFACT, MULTI_PIPELINE_ARTIFACT, CLOUD_FRONT_ORIGIN |
+| bucketType | SecureBucketType | SecureBucketType.DEFAULT_BUCKET | The type of the bucket.<br/> Available types: DEFAULT(⚠️ **Deprecated**: Use bucketType property instead.), <br/>SINGLE_PIPELINE_ARTIFACT(⚠️ **Deprecated**: Use bucketType property instead.), <br/>MULTI_PIPELINE_ARTIFACT(⚠️ **Deprecated**: Use bucketType property instead.), <br/>CLOUD_FRONT_ORIGIN(⚠️ **Deprecated**: Use bucketType property instead.), <br/>The type of the bucket. <br/>Available types: DEFAULT_BUCKET, <br/>SINGLE_REGION_DEPLOYMENT_PIPELINE_ARTIFACT_BUCKET, <br/>MULTI_REGION_DEPLOYMENT_PIPELINE_ARTIFACT_BUCKET, <br/>CLOUD_FRONT_ORIGIN_BUCKET |
 | isPipelineArtifactBucket | boolean | false | ⚠️ **Deprecated**: Use bucketType property instead. If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, set it to true. |
 | isCloudFrontOriginBucket | boolean | false | ⚠️ **Deprecated**: Use bucketType property instead. If you are using it as the CloudFront origin bucket, set it to true. |
 
