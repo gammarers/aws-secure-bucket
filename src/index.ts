@@ -11,10 +11,40 @@ import { Construct } from 'constructs';
  */
 
 export enum SecureBucketType {
+  /**
+   * @deprecated This property is deprecated. Use the bucketType property instead.
+   */
   SINGLE_PIPELINE_ARTIFACT = 'single-pipeline-artifact',
+  /**
+   * If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, is it selected as the single region deployment pipeline artifact bucket.
+   */
+  SINGLE_REGION_DEPLOYMENT_PIPELINE_ARTIFACT_BUCKET = 'single-region-deployment-pipeline-artifact-bucket',
+  /**
+   * @deprecated This property is deprecated. Use the bucketType property instead.
+   */
   MULTI_PIPELINE_ARTIFACT = 'multi-pipeline-artifact',
+  /**
+   * If you are setting a custom Qualifier and using it as the artifact bucket for the CDK pipeline, is it selected as the multi region deployment pipeline artifact bucket.
+   */
+  MULTI_REGION_DEPLOYMENT_PIPELINE_ARTIFACT_BUCKET = 'multi-region-deployment-pipeline-artifact-bucket',
+  /**
+   * If you are using it as the CloudFront origin bucket, is it selected as the cloudfront origin bucket.
+   * @deprecated This property is deprecated. Use the bucketType property instead.
+   */
   CLOUD_FRONT_ORIGIN = 'cloudfront-origin',
+  /**
+   * If you are using it as the CloudFront origin bucket, is it selected as the cloudfront origin bucket.
+   */
+  CLOUD_FRONT_ORIGIN_BUCKET = 'cloudfront-origin-bucket',
+  /**
+   * If you are not setting a custom Qualifier and using it as the default bucket, is it selected as the default bucket.
+   * @deprecated This property is deprecated. Use the bucketType property instead.
+   */
   DEFAULT = 'default',
+  /**
+   * If you are not setting a custom Qualifier and using it as the default bucket, is it selected as the default bucket.
+   */
+  DEFAULT_BUCKET = 'default-bucket',
 }
 
 export interface SecureBucketProps extends s3.BucketProps {
@@ -49,7 +79,7 @@ export class SecureBucket extends s3.Bucket {
       // encryption: props?.encryption || s3.BucketEncryption.KMS_MANAGED,
       encryption: (() => {
         if (props?.isCloudFrontOriginBucket === true
-          || bucketType === SecureBucketType.CLOUD_FRONT_ORIGIN) {
+          || (bucketType === SecureBucketType.CLOUD_FRONT_ORIGIN || bucketType === SecureBucketType.CLOUD_FRONT_ORIGIN_BUCKET)) {
           return s3.BucketEncryption.S3_MANAGED;
         }
         return props?.encryption || s3.BucketEncryption.KMS_MANAGED;
@@ -85,7 +115,9 @@ export class SecureBucket extends s3.Bucket {
 
     if (props?.isPipelineArtifactBucket
       || bucketType === SecureBucketType.SINGLE_PIPELINE_ARTIFACT
-      || bucketType === SecureBucketType.MULTI_PIPELINE_ARTIFACT) {
+      || bucketType === SecureBucketType.MULTI_PIPELINE_ARTIFACT
+      || bucketType === SecureBucketType.SINGLE_REGION_DEPLOYMENT_PIPELINE_ARTIFACT_BUCKET
+      || bucketType === SecureBucketType.MULTI_REGION_DEPLOYMENT_PIPELINE_ARTIFACT_BUCKET) {
 
       // 👇 Get qualifier
       // const qualifier = Stack.of(this).synthesizer.bootstrapQualifier || defaultQualifier;
